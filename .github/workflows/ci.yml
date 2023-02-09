@@ -32,4 +32,5 @@ jobs:
           echo "BASE: ${{ steps.setSHAs.outputs.base }}"
           echo "HEAD: ${{ steps.setSHAs.outputs.head }}"
       - run: npm ci
+      - run: npx nx affected --target=build --parallel=3
       # ... more CI config ...
