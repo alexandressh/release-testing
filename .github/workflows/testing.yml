@@ -10,26 +10,49 @@ on:
 
 
 jobs:
-  trueJob:
-    runs-on: ubuntu-latest
-    name: True Job
-    if: ${{ inputs.boolValue == 'true' }}
-    steps:
-      - name: Test True
-        run: |
-          echo "Test TRUE"
-      - name: Setup Node.js
-        uses: actions/setup-node@64ed1c7eab4cce3362f8c340dee64e5eaeef8f7c #v3.6.0
-        with:
-          node-version: 14
-      - uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b #v3.2.0
-      - name: Checkout
-        uses: ./.github/actions/setup
-  falseJob:
+  # trueJobQuotes:
+  #   runs-on: ubuntu-latest
+  #   name: True Job
+  #   if: ${{ inputs.boolValue == 'true' }}
+  #   steps:
+  #     - name: Test True
+  #       run: |
+  #         echo "Test TRUE"
+  #     - name: Setup Node.js
+  #       uses: actions/setup-node@64ed1c7eab4cce3362f8c340dee64e5eaeef8f7c #v3.6.0
+  #       with:
+  #         node-version: 14
+  #     - uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b #v3.2.0
+  #     - name: Checkout
+  #       uses: ./.github/actions/setup
+  falseJobQuotes:
     runs-on: ubuntu-latest
     name: False Job
     if: ${{ inputs.boolValue == 'false' }}
     steps:
       - name: Test False
-        run: echo "Test FALSE"
+        run: echo "Test FALSE Quotes"
 
+  TrueJobQuotes:
+    runs-on: ubuntu-latest
+    name: True Job
+    if: ${{ inputs.boolValue == 'true' }}
+    steps:
+      - name: Test True Quotes
+        run: echo "Test True Quotes"
+
+  falseJob:
+    runs-on: ubuntu-latest
+    name: False Job
+    if: ${{ inputs.boolValue == false }}
+    steps:
+      - name: Test False
+        run: echo "Test FALSE "
+
+  TrueJob:
+    runs-on: ubuntu-latest
+    name: True Job
+    if: ${{ inputs.boolValue == true }}
+    steps:
+      - name: Test True 
+        run: echo "Test True "
