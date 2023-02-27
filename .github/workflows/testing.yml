@@ -13,10 +13,11 @@ jobs:
   trueJob:
     runs-on: ubuntu-latest
     name: True Job
-    if: inputs.boolValue == 'true'
+    if: inputs.boolValue == true
     steps:
       - name: Test True
-        run: echo "Test TRUE"
+        run: |
+          echo "Test TRUE"
       - name: Setup Node.js
         uses: actions/setup-node@64ed1c7eab4cce3362f8c340dee64e5eaeef8f7c #v3.6.0
         with:
@@ -27,7 +28,7 @@ jobs:
   falseJob:
     runs-on: ubuntu-latest
     name: False Job
-    if: inputs.boolValue == 'false'
+    if: inputs.boolValue == false
     steps:
       - name: Test False
         run: echo "Test FALSE"
