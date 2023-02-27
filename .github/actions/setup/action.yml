@@ -1,7 +1,5 @@
 name: "Setup workspace"
-
-# INPUTS
-
+description: Action that checkouts the repo (actions/checkout) and sets SHAS to be used by NX (nrwl/nx-set-shas)
 runs:
   using: composite
   steps:
@@ -9,13 +7,12 @@ runs:
       uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b #v3.2.0
       with:
         fetch-depth: 0
-        ref: ${{ github.base_ref }}
-        # token: ${{ steps.generate-token.outputs.token }}
-    - name: test
-      shell: bash
-      run: echo "Testingfff"
     - name: Derive appropriate SHAs for base and head for `nx affected` commands
-      uses: nrwl/nx-set-shas@v3
+      uses: nrwl/nx-set-shas@ac593985615ec2ede58e132d2e21d2b1cbd6127c #v3.3.0
+      with:
+        main-branch-name: ${{ github.base_ref || github.ref_name }}
+    - name: Set SHAs to env
+      shell: bash
       run: |
         echo "BASE: ${{ env.NX_BASE }}"
         echo "HEAD: ${{ env.NX_HEAD }}"
