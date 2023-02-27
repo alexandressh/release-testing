@@ -1,0 +1,21 @@
+name: "Setup workspace"
+
+# INPUTS
+
+runs:
+  using: composite
+  steps:
+    #TODO: DO WE NEED TO GENERATE TOKEN?
+    # - name: Generate authentication token
+    #   id: generate-token
+    #   uses: navikt/github-app-token-generator@a9cd374e271b8aef573b8c16ac46c44fb89b02db #v1.1.1
+    #   with:
+    #     private-key: ${{ secrets.GIT_GITHUB_APP_PEM_FILE }}
+    #     app-id: ${{ secrets.GIT_GITHUB_APP_ID }}
+
+    - name: Checkout the target branch
+      uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b #v3.2.0
+      with:
+        fetch-depth: 0
+        ref: ${{ github.base_ref }}
+        # token: ${{ steps.generate-token.outputs.token }}
