@@ -11,3 +11,5 @@ runs:
         fetch-depth: 0
         ref: ${{ github.base_ref }}
         # token: ${{ steps.generate-token.outputs.token }}
+    - name: test
+      run: echo "Testingfff"
