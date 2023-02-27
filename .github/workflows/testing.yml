@@ -6,7 +6,7 @@ on:
       boolValue:
         type: boolean
         description: Just a flag
-        defaults: false
+        default: false
 
 
 jobs:
