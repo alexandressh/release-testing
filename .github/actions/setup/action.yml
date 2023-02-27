@@ -12,4 +12,5 @@ runs:
         ref: ${{ github.base_ref }}
         # token: ${{ steps.generate-token.outputs.token }}
     - name: test
+      shell: bash
       run: echo "Testingfff"
