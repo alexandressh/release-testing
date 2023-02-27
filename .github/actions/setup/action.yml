@@ -11,8 +11,3 @@ runs:
       uses: nrwl/nx-set-shas@177b48373c6dc583ce0d9257ffb484bdd232fedf #v3.0.2
       with:
         main-branch-name: ${{ github.base_ref || github.ref_name }}
-    - name: Set SHAs to env
-      shell: bash
-      run: |
-        echo "BASE: ${{ env.NX_BASE }}"
-        echo "HEAD: ${{ env.NX_HEAD }}"
