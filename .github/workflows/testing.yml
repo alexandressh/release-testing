@@ -27,14 +27,14 @@ jobs:
   #       uses: ./.github/actions/setup
   falseJobQuotes:
     runs-on: ubuntu-latest
-    name: False Job
+    name: False Job Quotes
     if: inputs.boolValue == 'false'
     steps:
       - name: Test False
         run: echo "Test FALSE Quotes"
   TrueJobQuotes:
     runs-on: ubuntu-latest
-    name: True Job
+    name: True Job Quotes
     if: inputs.boolValue == 'true'
     steps:
       - name: Test True Quotes
