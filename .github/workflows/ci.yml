@@ -13,7 +13,8 @@ jobs:
         uses: actions/setup-node@64ed1c7eab4cce3362f8c340dee64e5eaeef8f7c #v3.6.0
         with:
           node-version: 14
-      - uses: alexandressh/release-testing@main
+      - name: Checkout
+        uses: alexandressh/setup@main
 
       # In any subsequent steps within this job (myjob) we can reference the resolved SHAs
       # using either the step outputs or environment variables:
