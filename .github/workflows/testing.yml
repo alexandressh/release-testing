@@ -3,16 +3,19 @@ name: "Build"
 on:
   workflow_dispatch:
     inputs:
-      appName:
-        type: string
+      boolValue:
+        type: boolean
         description: Just a flag
-        default: testing
+        default: "false"
 
 
 jobs:
   myjob:
     runs-on: ubuntu-latest
     name: My Job
+
+    if: inputs.boolValue == 'true'
+    
     steps:
       - name: Setup Node.js
         uses: actions/setup-node@64ed1c7eab4cce3362f8c340dee64e5eaeef8f7c #v3.6.0
