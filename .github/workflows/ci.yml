@@ -14,7 +14,7 @@ jobs:
         with:
           node-version: 14
       - name: Checkout
-        uses: release-testing/setup@main
+        uses: ./.github/actions/setup
 
       # In any subsequent steps within this job (myjob) we can reference the resolved SHAs
       # using either the step outputs or environment variables:
