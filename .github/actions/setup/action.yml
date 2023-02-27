@@ -8,7 +8,7 @@ runs:
       with:
         fetch-depth: 0
     - name: Derive appropriate SHAs for base and head for `nx affected` commands
-      uses: nrwl/nx-set-shas@ac593985615ec2ede58e132d2e21d2b1cbd6127c #v3.3.0
+      uses: nrwl/nx-set-shas@177b48373c6dc583ce0d9257ffb484bdd232fedf #v3.0.2
       with:
         main-branch-name: ${{ github.base_ref || github.ref_name }}
     - name: Set SHAs to env
