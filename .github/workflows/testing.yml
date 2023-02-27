@@ -28,15 +28,14 @@ jobs:
   falseJobQuotes:
     runs-on: ubuntu-latest
     name: False Job
-    if: ${{ inputs.boolValue == 'false' }}
+    if: inputs.boolValue == 'false'
     steps:
       - name: Test False
         run: echo "Test FALSE Quotes"
-
   TrueJobQuotes:
     runs-on: ubuntu-latest
     name: True Job
-    if: ${{ inputs.boolValue == 'true' }}
+    if: inputs.boolValue == 'true'
     steps:
       - name: Test True Quotes
         run: echo "Test True Quotes"
@@ -44,15 +43,29 @@ jobs:
   falseJob:
     runs-on: ubuntu-latest
     name: False Job
-    if: ${{ inputs.boolValue == false }}
+    if: inputs.boolValue == false
     steps:
       - name: Test False
-        run: echo "Test FALSE "
-
+        run: echo "Test False"
   TrueJob:
     runs-on: ubuntu-latest
     name: True Job
-    if: ${{ inputs.boolValue == true }}
+    if: inputs.boolValue == true
     steps:
       - name: Test True 
         run: echo "Test True "
+
+  falseJobEval:
+    runs-on: ubuntu-latest
+    name: False Job Eval
+    if: ${{ inputs.boolValue == 'false' }}
+    steps:
+      - name: Test False
+        run: echo "Test False Eval"
+  TrueJobEval:
+    runs-on: ubuntu-latest
+    name: True Job Eval
+    if: ${{ inputs.boolValue == 'true' }}
+    steps:
+      - name: Test True 
+        run: echo "Test True Eval"
