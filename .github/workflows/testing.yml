@@ -6,6 +6,7 @@ on:
       boolValue:
         type: boolean
         description: Just a flag
+        defaults: false
 
 
 jobs:
@@ -25,12 +26,3 @@ jobs:
       - uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b #v3.2.0
       - name: Checkout
         uses: ./.github/actions/setup
-  myjobs:
-    runs-on: ubuntu-latest
-    name: My Job
-
-    steps:
-      - name: Test False
-        shell: bash
-        run: echo "Test FALSE"
-        if: inputs.boolValue == 'false'
