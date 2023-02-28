@@ -1,0 +1,14 @@
+name: "Test"
+
+on:
+  workflow_dispatch:
+jobs:
+  jobName:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Env
+        uses: ./.github/actions/e2e
+        with:
+          environment: 'aaa'
+          suite: 'bbb'
+          browser: 'ccc'

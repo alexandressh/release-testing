@@ -1,0 +1,31 @@
+name: E2E Action
+
+inputs:
+  working-directory:
+    description: >
+      Path relative to the repository root, in which commands should be executed.
+      Default value is `./src`.
+    required: false
+    default: './src'
+  appPath:
+    description: "App path inside sources"
+    required: true
+  environment:
+    description: "Environment in which we will run the tests"
+    required: false
+    default: ''
+  suite:
+    description: "Test suite to run"
+    required: false
+    default: ''
+  browser:
+    description: "Browser name"
+    required: true
+    default: 'chrome'
+runs:
+  using: composite
+  steps:
+    - name: Define which script to run
+      shell: bash
+      run: |
+        echo ${{inputs.environment}} ${{inputs.suite}} ${{inputs.browser}}
