@@ -27,4 +27,4 @@ jobs:
       - name: Env
         uses: ./.github/actions/e2e
         with:
-          browser: ${{'CS-' + inputs.first + '-' + inputs.last }}
+          browser: ${{ join(['CS-', inputs.first, '-', inputs.last]) }}
