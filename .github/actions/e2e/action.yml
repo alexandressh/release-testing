@@ -1,31 +1,30 @@
 name: E2E Action
 
 inputs:
-  working-directory:
-    description: >
-      Path relative to the repository root, in which commands should be executed.
-      Default value is `./src`.
-    required: false
-    default: './src'
-  appPath:
-    description: "App path inside sources"
-    required: false
-  environment:
-    description: "Environment in which we will run the tests"
+  project-name:
+    description: Name to be used
+    type: string
     required: false
     default: ''
-  suite:
-    description: "Test suite to run"
+  last:
+    description: Last Name
+    type: string
     required: false
-    default: ''
-  browser:
-    description: "Browser name"
-    required: true
-    default: ''
+    default: 'Alexandre'
+  first:
+    description: First Name
+    type: string
+    required: false
+    default: 'HenRiquE'
 runs:
-  using: composite
+  using: "composite"
   steps:
-    - name: Define which script to run
+    - name: Print all
       shell: bash
       run: |
-        echo ${{ inputs.browser }}
+        echo ${{ inputs.last }} ${{ inputs.first }} ${{ inputs.project-name }}
+    - name: Create project name
+      if: ${{project-name == ''''}}
+      shell: bash
+      run: |
+        echo ${{ inputs.last }} ${{ inputs.first }}
