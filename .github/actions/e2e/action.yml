@@ -27,4 +27,9 @@ runs:
       if: ${{ inputs.project-name == '' }}
       shell: bash
       run: |
-        echo ${{ inputs.last }} ${{ inputs.first }}
+        echo ${{ inputs.last }} ${{ inputs.first }} FOO
+    - name: Create project name
+      if: ${{ inputs.project-name != '' }}
+      shell: bash
+      run: |
+        echo ${{ inputs.project-name }} FOO
