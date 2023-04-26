@@ -3,12 +3,12 @@ name: "Test"
 on:
   workflow_call:
     inputs:
-      project-name
+      project-name:
         description: Name to be used
         type: string
         required: false
         default: ''
-      project-default
+      project-default:
         description: Name to be used
         type: string
         required: false
