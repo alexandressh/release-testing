@@ -1,35 +1,35 @@
-name: CI
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-jobs:
-  myjob:
-    runs-on: ubuntu-latest
-    name: My Job
-    steps:
-      - name: Setup Node.js
-        uses: actions/setup-node@64ed1c7eab4cce3362f8c340dee64e5eaeef8f7c #v3.6.0
-        with:
-          node-version: 14
-      - uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b #v3.2.0
-      - name: Checkout
-        uses: ./.github/actions/setup
+# name: CI
+# on:
+#   push:
+#     branches:
+#       - main
+#   pull_request:
+# jobs:
+#   myjob:
+#     runs-on: ubuntu-latest
+#     name: My Job
+#     steps:
+#       - name: Setup Node.js
+#         uses: actions/setup-node@64ed1c7eab4cce3362f8c340dee64e5eaeef8f7c #v3.6.0
+#         with:
+#           node-version: 14
+#       - uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b #v3.2.0
+#       - name: Checkout
+#         uses: ./.github/actions/setup
 
-      # In any subsequent steps within this job (myjob) we can reference the resolved SHAs
-      # using either the step outputs or environment variables:
+#       # In any subsequent steps within this job (myjob) we can reference the resolved SHAs
+#       # using either the step outputs or environment variables:
 
-      # ===========================================================================
-      # OPTION 2) Step outputs (in this case we must give the step an "id")
-      # # ===========================================================================
-      # - name: Derive appropriate SHAs for base and head for `nx affected` commands
-      #   id: setSHAs
-      #   uses: nrwl/nx-set-shas@v3
+#       # ===========================================================================
+#       # OPTION 2) Step outputs (in this case we must give the step an "id")
+#       # # ===========================================================================
+#       # - name: Derive appropriate SHAs for base and head for `nx affected` commands
+#       #   id: setSHAs
+#       #   uses: nrwl/nx-set-shas@v3
     
-      # - run: |
-      #     echo "BASE: ${{ steps.setSHAs.outputs.base }}"
-      #     echo "HEAD: ${{ steps.setSHAs.outputs.head }}"
-      # - run: npm ci
-      # - run: npx nx affected --target=build --parallel=3
-      # ... more CI config ...
+#       # - run: |
+#       #     echo "BASE: ${{ steps.setSHAs.outputs.base }}"
+#       #     echo "HEAD: ${{ steps.setSHAs.outputs.head }}"
+#       # - run: npm ci
+#       # - run: npx nx affected --target=build --parallel=3
+#       # ... more CI config ...

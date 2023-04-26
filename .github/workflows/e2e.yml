@@ -1,7 +1,7 @@
 name: "Testing Inputs"
 
 on:
-  workflow_call:
+  workflow_dispatch:
     inputs:
       project-name:
         description: Name to be used
@@ -14,12 +14,12 @@ on:
         required: false
         default: 'HenRiquE'
 
-jobs:
-  jobName:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b #v3.2.0
-      - name: Env
-        uses: ./.github/actions/e2e
-        with:
-          browser: ${{ inputs.project-default }}
+    jobs:
+      jobName:
+        runs-on: ubuntu-latest
+        steps:
+          - uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b #v3.2.0
+          - name: Env
+            uses: ./.github/actions/e2e
+            with:
+              browser: ${{ inputs.project-default }}
