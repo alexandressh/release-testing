@@ -16,6 +16,11 @@ inputs:
     type: string
     required: false
     default: 'HenRiquE'
+outputs:
+  project-name:
+    description: "The project name"
+    value: ${{ steps.model-bank.outputs.tag-name || steps.rnd.outputs.tag-name }}
+
 runs:
   using: "composite"
   steps:
@@ -24,11 +29,13 @@ runs:
       run: |
         echo ${{ inputs.last }} ${{ inputs.first }} ${{ inputs.project-name }}
     - name: Create project name
+      id: created
       if: ${{ inputs.project-name == '' }}
       shell: bash
       run: |
         echo ${{ inputs.last }} ${{ inputs.first }} FOO
     - name: Create project name
+      id: provided
       if: ${{ inputs.project-name != '' }}
       shell: bash
       run: |

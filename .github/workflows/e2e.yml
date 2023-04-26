@@ -23,10 +23,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b #v3.2.0
-      - name: Scanner
-        uses: ./.github/actions/e2e
-        with:
-          first: ${{inputs.first}}
-          last: ${{inputs.last}}
-          project-name: ${{inputs.project-name}}
-          # browser:  CS-${{inputs.first}}-${{inputs.last}}- ${{needs.nameConstruction.outputs.browserName}}
+      - name: Step 1 - Empty
+        shell: bash
+        if: ${{inputs.project-name == ''}}
+        run: |
+          echo "PROJECT_NAME=${{inputs.first}}_${{inputs.last}}_FOO" >> $GITHUB_ENV
+      - name: Step 1 - Defined
+        shell: bash
+        if: ${{inputs.project-name != ''}}
+        run: |
+          echo "PROJECT_NAME=${{inputs.project-name}}_XXX_FOO" >> $GITHUB_ENV
+      - name: Step 2
+        shell: bash
+        run: |
+          echo ${{env.PROJECT_NAME}}
+      # - name: Scanner
+      #   uses: ./.github/actions/e2e
+      #   with:
+      #     first: ${{inputs.first}}
+      #     last: ${{inputs.last}}
+      #     project-name: ${{inputs.project-name}}
+      #     # browser:  CS-${{inputs.first}}-${{inputs.last}}- ${{needs.nameConstruction.outputs.browserName}}
