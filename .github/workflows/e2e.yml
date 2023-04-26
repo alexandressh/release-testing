@@ -27,4 +27,4 @@ jobs:
       - name: Env
         uses: ./.github/actions/e2e
         with:
-          browser:  ${{inputs.project-name || CS-${{inputs.first}}-${{inputs.last}}}}
+          browser:  ${{inputs.project-name || 'CS-'inputs.first'-'inputs.last}}
