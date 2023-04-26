@@ -26,7 +26,7 @@ jobs:
     steps:
       - id: nameConstruction
         run: |
-          echo "test=${{inputs.project-name}}:+${{inputs.first}}FOO" >> "$GITHUB_OUTPUT"
+          echo "test=${${{inputs.project-name}}:+${{inputs.first}}FOO}" >> "$GITHUB_OUTPUT"
 
 # echo ${first:+${second}FOO} 
   nameFinal:
