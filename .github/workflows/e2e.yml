@@ -35,4 +35,4 @@ jobs:
       - name: Env
         uses: ./.github/actions/e2e
         with:
-          browser:  CS-${{inputs.first}}-${{inputs.last}}- ${{needs.nameConstruction.outputs.test}}
+          browser:  CS-${{inputs.first}}-${{inputs.last}}- ${{needs.nameConstruction.outputs.browserName}}
