@@ -20,11 +20,19 @@ on:
         default: 'HenRiquE'
 
 jobs:
-  jobName:
+  nameConstruction:
     runs-on: ubuntu-latest
+    outputs:
+      browserName: ${{ steps.nameConstruction.outputs.test }}
+    steps:
+      - id: nameConstruction
+        run: echo "test=hello" >> "$GITHUB_OUTPUT"
+  nameFinal:
+    runs-on: ubuntu-latest
+    needs: nameConstruction
     steps:
       - uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b #v3.2.0
       - name: Env
         uses: ./.github/actions/e2e
         with:
-          browser:  ${{inputs.project-name || 'CS-'inputs.first'-'inputs.last}}
+          browser:  CS-${{inputs.first}}-${{inputs.last}}- ${{needs.nameConstruction.outputs.test}}
