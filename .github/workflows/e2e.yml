@@ -2,6 +2,18 @@ name: "Test"
 
 on:
   workflow_dispatch:
+    inputs:
+      project-name
+        description: Name to be used
+        type: string
+        required: false
+        default: ''
+      project-default
+        description: Name to be used
+        type: string
+        required: false
+        default: 'HenRiquE'
+
 jobs:
   jobName:
     runs-on: ubuntu-latest
@@ -10,6 +22,4 @@ jobs:
       - name: Env
         uses: ./.github/actions/e2e
         with:
-          environment: 'aaa'
-          suite: 'bbb'
-          browser: 'ccc'
+          browser: ${{ inputs.project-default }}

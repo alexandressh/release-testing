@@ -9,7 +9,7 @@ inputs:
     default: './src'
   appPath:
     description: "App path inside sources"
-    required: true
+    required: false
   environment:
     description: "Environment in which we will run the tests"
     required: false
@@ -21,11 +21,11 @@ inputs:
   browser:
     description: "Browser name"
     required: true
-    default: 'chrome'
+    default: ''
 runs:
   using: composite
   steps:
     - name: Define which script to run
       shell: bash
       run: |
-        echo ${{inputs.environment}} ${{inputs.suite}} ${{inputs.browser}}
+        echo ${{ inputs.browser }}
